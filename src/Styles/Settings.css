@@ -21,7 +21,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-weight: lighter;
+  margin-bottom: 5px;
 }
 
 .settings label {
