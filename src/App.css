@@ -69,7 +69,7 @@ button {
 
 .playerC {
   position: fixed;
-  bottom: 0;
+  bottom: 5px;
   right: 0;
   width: 82%;
   height: 100px;
@@ -146,7 +146,7 @@ button {
 
 .player .details {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-end;
   height: 100%;
   color: white;
