@@ -8,6 +8,12 @@
   background-color: rgb(179, 179, 179);
 }
 
+@media screen and (max-width: 500px) {
+  .fts {
+    min-height: 40vh;
+  }
+}
+
 .fts::before {
   content: "";
   position: absolute;
