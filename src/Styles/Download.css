@@ -1,0 +1,26 @@
+.thk {
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	flex-direction: column;
+	padding-top: 5%;
+	margin-bottom: 30px;
+}
+
+.thk h1 {
+	max-width: 100%;
+	width: 60%;
+	text-align: center;
+	margin-bottom: 20px;
+	font-weight: 500;
+}
+
+.thk h1 em {
+	font-weight: bold;
+}
+
+.thk a {
+	color: rgb(39, 194, 138);
+}

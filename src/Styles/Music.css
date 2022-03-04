@@ -1,0 +1,287 @@
+.music {
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+.music ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.music .text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.music .text .checkboxC {
+  display: flex;
+  height: 15px;
+  width: 15px;
+  border: 1px solid white;
+  border-radius: 2px;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.music .text .cb {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  border-radius: 2px;
+}
+
+.music .text .cbs {
+  height: 100%;
+  width: 100%;
+  background: #202053;
+  position: relative;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.music .text .cbs.selected {
+  display: flex !important;
+}
+
+.music .text .mark {
+  border: 2px solid white;
+  border-top: none;
+  border-right: none;
+  width: 70%;
+  height: 30%;
+  border-radius: 1px;
+  transform: rotate(-35deg);
+  margin-bottom: 1px;
+}
+
+.music ul button,
+.bti {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  transition: 0.5s ease-in-out;
+  background: #0d0d1a;
+  font-weight: 500;
+  font-size: 0.8em;
+}
+
+.music ul button:hover,
+.bti:hover,
+.bti.active,
+.music ul button.active {
+  border-bottom-color: rgb(202, 202, 202);
+  background: #202053;
+  color: #fff;
+}
+
+.music__table {
+  color: white;
+  width: 100%;
+  padding: 10px;
+  text-transform: capitalize;
+  overflow: auto;
+}
+
+.music__table table {
+  width: 100%;
+}
+
+.music__table::-webkit-scrollbar {
+  appearance: none;
+}
+
+.music__table thead {
+  background: #0d0d1a;
+  width: 100%;
+}
+
+.music__table td {
+  padding: 12px;
+}
+
+.music__table tbody {
+  color: rgb(202, 202, 202);
+}
+
+.music__table tbody tr {
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+
+.music__table tbody tr a {
+  color: rgb(202, 202, 202);
+}
+
+.music__table tbody tr:nth-child(2n) {
+  background: #0d0d1a;
+}
+
+.music__table tbody tr:hover {
+  background: #202053 !important;
+}
+.selectedC {
+  background: #202053 !important;
+}
+.music__table tbody tr.selectedC .text .checkboxC {
+  opacity: 1;
+}
+.music__table tbody tr td:first-child {
+  column-count: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.music__table .icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.music__table tbody tr:hover .icons,
+.music__table tbody tr:hover .text .checkboxC {
+  opacity: 1;
+}
+
+.music__table .icons svg:not(:last-child) {
+  margin-right: 10px;
+}
+
+.music__table .icons svg {
+  transition: 0.5s ease-in-out;
+}
+
+.music__table .icons svg:hover {
+  transform: scale(1.1);
+  color: rgb(39, 194, 138);
+}
+
+/* .sort:hover + .music .sort__opts {
+	opacity: 1 !important;
+	transform: translateX(0) scale(1) !important;
+} */
+
+.music .sort__opts.hide {
+  animation: hide 1s linear forwards;
+}
+
+.music .sort__opts.show {
+  animation: show 1s linear forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.5);
+  }
+}
+
+.as {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(202, 202, 202);
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  padding: 0 20px;
+}
+
+.as .s,
+.as .avs {
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.as .avs {
+  display: flex;
+}
+
+.as .s svg,
+.as .avs svg {
+  margin-right: 5px;
+}
+
+.as .s.selected {
+  display: flex;
+}
+
+.music__sap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.music .pa {
+  display: none;
+}
+
+.music .pa.ready {
+  display: flex;
+  animation: pa 1s linear forwards;
+}
+
+@keyframes pa {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.bti {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+}
+
+.hd {
+  opacity: 0.7;
+  margin: 20px 0 30px;
+  text-align: center;
+  color: white;
+  width: 100%;
+  font-weight: 500;
+}
+
+.bti svg {
+  margin-right: 5px;
+  color: #fff;
+}

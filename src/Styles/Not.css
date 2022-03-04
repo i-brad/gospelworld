@@ -1,0 +1,15 @@
+.ntf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  color: rgb(39, 194, 138);
+  font-size: 0.8em;
+}
+
+.ntf img {
+  height: 200px;
+  width: auto;
+}

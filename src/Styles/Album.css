@@ -1,0 +1,102 @@
+.single__album {
+	padding: 0 15px;
+	margin-bottom: 20px;
+}
+
+.single__album > h1 {
+	color: white !important;
+	font-size: 1.05em;
+	font-weight: 500;
+	margin-bottom: 10px;
+}
+
+.line {
+	display: -ms-grid;
+	display: grid;
+	grid-template-columns: 340px 340px 340px;
+	-ms-grid-columns: 340px 340px 340px;
+	gap: 20px;
+	place-content: start;
+	padding: 10px;
+	overflow: auto;
+}
+
+.line::-webkit-scrollbar {
+	appearance: none;
+	height: 0;
+	width: 0;
+}
+
+/* .line > div {
+	width: 100%;
+} */
+
+.album__line img {
+	width: auto;
+	height: 100%;
+	border-radius: 5px;
+	margin-right: 5px;
+}
+
+.album__line {
+	position: relative;
+	height: 65px;
+	width: 100%;
+	background: #0d0d1a;
+	border-radius: 5px;
+	padding: 5px;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	transition: 0.5s ease-in-out;
+	cursor: pointer;
+}
+
+.album__line input {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* .album__line:not(:first-child) {
+	margin: 20px 0;
+} */
+
+.album__line:hover,
+.album__line.selected {
+	background: #202053;
+}
+
+.album__dts {
+	flex: 1;
+}
+
+.album__dts h2 {
+	font-size: 0.9em;
+	font-weight: 500;
+}
+
+.album__dts h4 {
+	font-size: 0.7em;
+	opacity: 0.6;
+}
+
+.album__icons {
+	position: relative;
+	z-index: 2;
+}
+
+.album__icons svg {
+	margin-right: 5px;
+	cursor: pointer;
+	transition: 0.5s ease-in-out;
+}
+
+.album__icons svg:hover {
+	transform: scale(1.1);
+	color: rgb(39, 194, 138);
+}

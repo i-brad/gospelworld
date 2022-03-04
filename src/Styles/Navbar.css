@@ -1,0 +1,127 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #0d0d1a;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  overflow-x: hidden;
+  width: 18%;
+  transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 1100px) {
+  .navbar {
+    transform: translate(-300px);
+    opacity: 0;
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .navbar {
+    width: 50%;
+    transform: translate(-500px);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    width: 70%;
+  }
+}
+
+.navbar::-webkit-scrollbar {
+  appearance: none;
+  width: 0;
+}
+
+.navbar ul {
+  text-decoration: none;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar ul:first-child {
+  height: auto;
+  transition: height 0.5s ease-in-out;
+}
+
+.navbar ul:first-child {
+  padding-top: 0;
+}
+
+.navbar li {
+  list-style-type: none;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  width: 100%;
+}
+
+.navbar li a {
+  padding: 7px 12px;
+  margin: 6px 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: nowrap;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.navbar > ul > li:hover,
+.navbar .active {
+  background: #202053;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.navbar .nav__icon {
+  height: 25px;
+  width: 25px;
+  margin-right: 15px;
+  opacity: 0.85;
+  transition: 0.5s ease-in-out;
+}
+
+.navbar > ul > li:hover .nav__icon,
+.navbar .active .nav__icon {
+  transform: scale(1.1);
+  color: rgb(39, 194, 138);
+}
+
+.navbar .active .nav__icon {
+  transform: scale(1);
+}
+
+.navbar__lohu {
+  padding: 10px 12px;
+  width: 100%;
+  padding-bottom: 0;
+}
+
+.navbar__lohu > button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background: none !important;
+}
+
+.navbar__lohu .nav__icon {
+  margin-right: 3px;
+  color: white;
+}
+
+.navbar__logo {
+  max-width: 100%;
+}

@@ -1,0 +1,324 @@
+.sc {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  z-index: 30;
+  background: #00000079;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.sui__cover {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+  padding: 20px 0;
+  padding-top: 80px;
+}
+
+.sui__cover::-webkit-scrollbar {
+  appearance: none;
+  width: 0;
+}
+
+.sui {
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index: 35;
+  color: white;
+  cursor: pointer;
+  animation: closeT 2s ease-in-out forwards;
+}
+
+@keyframes closeT {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.sui__cover > div {
+  z-index: 35;
+}
+
+.sui > div {
+  overflow: auto;
+  position: relative;
+}
+
+.sui > div.show {
+  display: flex;
+  animation: dvp 0.7s ease-in-out forwards;
+}
+
+.sui > div.hide {
+  display: none;
+  animation: dvpC 0.7s ease-in-out forwards;
+}
+
+@keyframes dvp {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dvpC {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+.opn,
+.log {
+  background: #18183a;
+  width: 450px;
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  flex-direction: column;
+  color: white;
+  border-radius: 10px;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media screen and (max-width: 500px) {
+  .sui {
+    width: 98%;
+  }
+  .opn,
+  .log {
+    width: 100%;
+  }
+}
+
+.opn img,
+.log img {
+  width: 200px;
+  margin-bottom: 20px;
+}
+
+.opn h2 {
+  margin-bottom: 5px;
+}
+
+.lgn,
+.log.reg .btn {
+  padding: 10px 0;
+  border-radius: 10px;
+  border: none;
+  background: rgb(39, 194, 138);
+  color: white;
+  font-weight: bold;
+  width: 250px;
+  display: block;
+  margin: 30px auto;
+}
+
+.sui p {
+  opacity: 0.8;
+  margin-top: 10px;
+  font-size: 0.8em;
+}
+
+.sup,
+.bck {
+  border: none;
+  background: none;
+  border-bottom: 1px solid currentColor;
+  color: white;
+  font-size: 0.9em;
+}
+
+.log,
+.reg {
+  justify-content: flex-start;
+}
+
+.log form {
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.log label {
+  position: relative;
+  width: 100%;
+  background: #2a3326;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.log input {
+  border: none;
+  outline: none;
+  background: none;
+  color: white;
+  flex: 1;
+  height: 100%;
+}
+
+.log .pss {
+  cursor: pointer;
+}
+
+.log h2:last-of-type {
+  margin-bottom: 25px;
+}
+
+.rsp {
+  border: none;
+  opacity: 0.7;
+  background: none;
+  align-self: flex-start;
+  color: white;
+  margin: 10px auto;
+}
+
+.rme {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.774);
+}
+
+.log {
+  display: none;
+}
+
+.reg {
+  display: none;
+}
+
+.log .btn {
+  padding: 10px 0;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  color: #000000;
+  font-weight: bold;
+  width: 250px;
+  display: block;
+  margin: 30px auto;
+}
+
+.oth {
+  background: none;
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px 20px;
+  width: 60%;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.log .oth img {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0;
+  margin-right: 20px;
+}
+
+fieldset {
+  width: 70%;
+  text-align: center;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+  margin: 10px 0;
+}
+
+legend {
+  padding: 0 5px;
+}
+
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked
+  + .MuiSwitch-track {
+  background-color: rgb(39, 194, 138) !important;
+}
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+  color: rgb(39, 194, 138) !important;
+}
+
+.err {
+  text-transform: capitalize;
+  text-align: center;
+  background-color: rgb(236, 25, 25);
+  padding: 5px;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  transition: 0.5s ease-in-out;
+}
+
+.sui .sui__loader {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #00000079;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 10;
+  display: none;
+}
+
+.sui .sui__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 3px rgb(39, 194, 138) solid;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  height: 30px;
+  width: 30px;
+  animation: load 1s ease-in-out infinite alternate;
+}
+
+@keyframes load {
+  from {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}

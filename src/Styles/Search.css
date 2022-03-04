@@ -1,0 +1,14 @@
+.results {
+	color: white;
+	padding: 20px;
+}
+
+.results h1 {
+	font-size: 1.1em;
+	margin-bottom: 30px;
+}
+
+.results h2 {
+	font-size: 0.9em;
+	opacity: 0.7;
+}
