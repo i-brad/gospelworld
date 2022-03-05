@@ -69,7 +69,7 @@ button {
 
 .playerC {
   position: fixed;
-  bottom: 5px;
+  bottom:0;
   right: 0;
   width: 82%;
   height: 100px;
