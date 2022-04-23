@@ -94,11 +94,12 @@ function Header() {
             <NotificationsOutlinedIcon className="header__icon" />
             <span></span>
           </span>
-          <span className="header__sp">
-            <AccountCircleOutlinedIcon
-              className="header__icon"
-              onClick={open}
-            />
+          <span
+            className="header__sp"
+            onClick={open}
+            style={{ cursor: "pointer" }}
+          >
+            <AccountCircleOutlinedIcon className="header__icon" />
             {user?.user?.username && (
               <p>
                 Welcome <strong>{user?.user?.username}</strong>
