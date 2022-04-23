@@ -5,8 +5,6 @@ import VideoLibraryOutlinedIcon from "@mui/icons-material/VideoLibraryOutlined";
 import HistoryOutlinedIcon from "@mui/icons-material/HistoryOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import HeadphonesOutlinedIcon from "@mui/icons-material/HeadphonesOutlined";
-import QueueMusicOutlinedIcon from "@mui/icons-material/QueueMusicOutlined";
-
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FeedbackOutlinedIcon from "@mui/icons-material/FeedbackOutlined";
 import { useSelector } from "react-redux";
@@ -69,19 +67,11 @@ function Navbar() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/playlist">
-              <QueueMusicOutlinedIcon className="nav__icon" />
-              PlayList
-            </NavLink>
-          </li>
-          <li>
             <NavLink to="/favourite">
               <FavoriteBorderOutlinedIcon className="nav__icon" />
               Favourite
             </NavLink>
           </li>
-        </ul>
-        <ul>
           <li>
             <NavLink to="/settings">
               <SettingsOutlinedIcon className="nav__icon" />

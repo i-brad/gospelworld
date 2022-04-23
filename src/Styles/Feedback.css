@@ -22,10 +22,12 @@
   border: none;
   margin-top: 10px;
   margin-bottom: 20px;
-  background: rgb(214, 214, 214);
+  background: rgb(30, 30, 30);
   padding: 10px;
   border-radius: 5px;
   font-family: inherit;
+  outline: none;
+  color: #fff;
 }
 
 .feedback label,

@@ -4,7 +4,6 @@ import { lazy, Suspense } from "react";
 import Loader from "./Components/Loader";
 import SUI from "./Components/SUI";
 import Player from "./Components/Player";
-import PlaylistModal from "./Components/PlaylistModal";
 import { useSelector } from "react-redux";
 import Video from "./Pages/Video";
 import Navbar from "./Components/Navbar";
@@ -46,7 +45,6 @@ function App() {
 			</Suspense>
 			{Object.keys(playData).length > 0 && <Player />}
 			<SUI />
-			<PlaylistModal />
 		</div>
 	);
 }

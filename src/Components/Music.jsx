@@ -1,7 +1,6 @@
 import "../Styles/Music.css";
 import MusicTable from "./MusicTable";
 import MusicNoteOutlinedIcon from "@mui/icons-material/MusicNoteOutlined";
-import AlbumOutlinedIcon from "@mui/icons-material/AlbumOutlined";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import SortOutlinedIcon from "@mui/icons-material/SortOutlined";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
@@ -15,7 +14,6 @@ import { db } from "../firebase";
 import { SongsAction } from "../Redux/Actions/SongsAction";
 import { Clear_SelectedAction } from "../Redux/Actions/SelectedAction";
 import ArtistSection from "./ArtistSection";
-import AlbumSection from "./AlbumSection";
 import { Link, useLocation } from "react-router-dom";
 
 function Music() {
@@ -39,26 +37,21 @@ function Music() {
     if (hash === "song") {
       setS(true);
       setAts(false);
-      setAl(false);
     } else if (hash === "artists") {
       setS(false);
       setAts(true);
-      setAl(false);
     } else if (hash === "albums") {
       setS(false);
       setAts(false);
-      setAl(true);
     }
   }, [path]);
 
   let [s, setS] = useState(true);
   let [ats, setAts] = useState(false);
-  let [al, setAl] = useState(false);
 
   const Os = () => {
     setS(true);
     setAts(false);
-    setAl(false);
 
     let sortbtn = document.querySelector(".sortC");
     let avs = document.querySelector(".avs");
@@ -73,23 +66,6 @@ function Music() {
 
   const Oas = () => {
     setAts(true);
-    setAl(false);
-    setS(false);
-
-    let sortbtn = document.querySelector(".sortC");
-    let avs = document.querySelector(".avs");
-    let sel = document.querySelector(".as .s");
-
-    sortbtn.style.display = "none";
-    avs.style.opacity = "0";
-    sel.classList.remove("selected");
-    document.querySelector(".pa").classList.remove("ready");
-    dispatch(Clear_SelectedAction());
-  };
-
-  const Oal = () => {
-    setAl(true);
-    setAts(false);
     setS(false);
 
     let sortbtn = document.querySelector(".sortC");
@@ -132,16 +108,6 @@ function Music() {
             >
               <PeopleAltOutlinedIcon />
               Artists
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="#albums"
-              className={al ? "bti active" : "bti"}
-              onClick={Oal}
-            >
-              <AlbumOutlinedIcon />
-              Albums
             </Link>
           </li>
         </ul>
@@ -197,7 +163,6 @@ function Music() {
         </>
       )}
       {ats && <ArtistSection />}
-      {al && <AlbumSection />}
     </div>
   );
 }
