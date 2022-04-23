@@ -12,25 +12,11 @@
 .songs {
   display: grid;
   display: -ms-grid;
-  grid-template-columns: repeat(auto-fit, minmax(30%, 30%));
-  -ms-grid-columns: repeat(auto-fit, minmax(30%, 30%));
-  place-content: start center;
+  grid-template-columns: repeat(auto-fit, minmax(200x, 300px));
+  -ms-grid-columns: repeat(auto-fit, minmax(200px, 300px));
+  place-content: start;
   gap: 20px;
   padding: 10px;
-}
-
-@media screen and (max-width: 600px) {
-  .songs {
-    grid-template-columns: repeat(auto-fit, minmax(20%, 45%));
-    -ms-grid-columns: repeat(auto-fit, minmax(20%, 45%));
-  }
-}
-
-@media screen and (max-width: 390px) {
-  .songs {
-    grid-template-columns: repeat(auto-fit, minmax(50%, 100%));
-    -ms-grid-columns: repeat(auto-fit, minmax(50%, 100%));
-  }
 }
 
 .cards::-webkit-scrollbar {
