@@ -20,9 +20,10 @@ function Favourite() {
             textAlign: "center",
             marginTop: "10px",
             opacity: "0.7",
+            fontSize: ".8rem",
           }}
         >
-          You must be logged in to see your recently played songs and video.
+          You must be logged in to see your faourite songs and video.
         </p>
       )}
     </div>
