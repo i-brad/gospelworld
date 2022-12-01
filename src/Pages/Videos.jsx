@@ -7,7 +7,7 @@ function Vc() {
     <>
       <h1 className="hdV">Videos</h1>
       <div className="videos">
-        {Array(10)
+        {Array(9)
           .fill()
           .map((i, id) => {
             return <VideoCard key={id} />;

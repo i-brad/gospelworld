@@ -1,26 +1,25 @@
-import { useState } from "react";
-import Input from "./Input";
-import "../Styles/SUI.css";
-import Switch from "@mui/material/Switch";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
-import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import { signInAction, signOutAction } from "../Redux/Actions/Auth";
-import { useDispatch, useSelector } from "react-redux";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import Google from "../Assets/google-g-2015.svg";
-import Facebook from "../Assets/facebook-3.svg";
-import Logo from "../Assets/gospelworld.png";
+import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  signInWithPopup,
   GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
 } from "firebase/auth";
+import { collection, doc, getDoc, setDoc } from "firebase/firestore";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Facebook from "../Assets/facebook-3.svg";
+import Google from "../Assets/google-g-2015.svg";
+import Logo from "../Assets/gospelworld.png";
 import { auth, db } from "../firebase";
-import { collection, doc, setDoc, getDoc } from "firebase/firestore";
+import { signInAction, signOutAction } from "../Redux/Actions/Auth";
+import "../Styles/SUI.css";
+import Input from "./Input";
 
 function SUI() {
   let dispatch = useDispatch();
@@ -29,15 +28,6 @@ function SUI() {
 
   const [ErrorMessage, setErrorMessage] = useState("");
   const [ErrorOut, setErrorOut] = useState("");
-  let form = (e) => {
-    e.preventDefault();
-  };
-
-  const [checked, setChecked] = useState(false);
-
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
 
   const [Login, setLogin] = useState({
     email: "",
@@ -278,7 +268,13 @@ function SUI() {
           </div>
           <div className={lg ? "log show" : "log hide"}>
             <img src={Logo} alt="" />
-            <form action="" onSubmit={form}>
+            <form
+              action=""
+              onSubmit={(e) => {
+                e.preventDefault();
+                signInUser();
+              }}
+            >
               <h2>Log in for personalize experience</h2>
               <p className={ErrorMessage && "err"}>
                 {ErrorMessage?.split("(")[1]?.replace(")", "")}
@@ -286,39 +282,39 @@ function SUI() {
               {loginFields.map((details, index) => {
                 return <Input key={index} details={details} />;
               })}
-              <button className="rsp">Reset password</button>
-              <span className="rme">
-                Remember me{" "}
-                <Switch
-                  checked={checked}
-                  onChange={handleChange}
-                  inputProps={{ "aria-label": "controlled" }}
-                />
-              </span>
-              <button className="btn" onSubmit={signInUser}>
+              <button className="rsp" type="button">
+                Reset password
+              </button>
+              <button className="btn" type="submit">
                 LOG IN
               </button>
             </form>
             <fieldset>
               <legend>OR</legend>
             </fieldset>
-            <button className="oth" onClick={signGoogle}>
+            <button className="oth" onClick={signGoogle} type="button">
               <img src={Google} alt="" />
               Continue with Google
             </button>
-            <button className="oth">
+            <button className="oth" type="button">
               <img src={Facebook} alt="" />
               Continue with Facebook
             </button>
             <p>
               Don't have an account?{" "}
-              <button className="sup" onClick={rgO}>
+              <button className="sup" onClick={rgO} type="button">
                 SIGNUP
               </button>
             </p>
           </div>
           <div className={rg ? "reg log show" : "reg log hide"}>
-            <form action="" onSubmit={form}>
+            <form
+              action=""
+              onSubmit={(e) => {
+                e.preventDefault();
+                signUpUser();
+              }}
+            >
               <h2>Sign Up for free</h2>
               <h2>GospelWorld account</h2>
               <p className={ErrorMessage && "err"}>
@@ -327,27 +323,27 @@ function SUI() {
               {registerFields.map((details, index) => {
                 return <Input key={index} details={details} />;
               })}
-              <button className="btn" onSubmit={signUpUser}>
+              <button className="btn" type="submit">
                 Continue
               </button>
             </form>
-            <button className="bck" onClick={opn}>
+            <button className="bck" onClick={opn} type="button">
               Back
             </button>
             <fieldset>
               <legend>OR</legend>
             </fieldset>
-            <button className="oth" onClick={signGoogle}>
+            <button className="oth" onClick={signGoogle} type="button">
               <img src={Google} alt="" />
               Continue with Google
             </button>
-            <button className="oth">
+            <button className="oth" type="button">
               <img src={Facebook} alt="" />
               Continue with Facebook
             </button>
             <p>
               Already an account?{" "}
-              <button className="sup" onClick={lgO}>
+              <button className="sup" onClick={lgO} type="button">
                 LOGIN
               </button>
             </p>

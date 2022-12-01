@@ -65,11 +65,12 @@ button {
   margin-right: 0;
   margin-left: auto;
   transition: all 0.5s ease-in-out;
+  padding-bottom: 100px;
 }
 
 .playerC {
   position: fixed;
-  bottom:0;
+  bottom: 0;
   right: 0;
   width: 82%;
   height: 100px;
@@ -134,12 +135,12 @@ button {
 }
 
 .player img {
-  height: 100%;
+  height: 80px;
   width: 142px;
   margin-right: 5px;
   -o-object-fit: cover;
   -o-object-position: center;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   border-radius: 3px;
 }
@@ -152,6 +153,8 @@ button {
   color: white;
   flex: 1 1 250px;
   width: 100%;
+  min-width: fit-content;
+  max-width: 140px;
 }
 
 .player .song__name {
@@ -172,7 +175,7 @@ button {
 }
 
 .audio__cover {
-  flex: 2 1 500px;
+  flex: 2 1 450px;
   padding: 0 10px;
 }
 
@@ -220,6 +223,7 @@ button {
   position: absolute;
   top: 25px;
   right: 5px;
+  z-index: 2000;
 }
 
 .volud__icons > svg {
@@ -227,32 +231,6 @@ button {
   width: 30px;
   height: 30px;
   cursor: pointer;
-}
-
-.ud.upD {
-  animation: upD 0.5s ease-in-out forwards;
-}
-
-@keyframes upD {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(180deg);
-  }
-}
-
-.ud.downD {
-  animation: donwD 0.5s ease-in-out forwards;
-}
-
-@keyframes donwD {
-  from {
-    transform: rotate(180deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
 }
 
 .volume,
@@ -399,32 +377,6 @@ button {
   }
 }
 
-.mdt__details {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.mdt__lyric {
-  color: white;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.mdt__heading {
-  font-size: 1em;
-  margin-bottom: 20px;
-  font-weight: 600;
-  color: white;
-}
-
-.mdt__text p {
-  margin-bottom: 20px;
-  opacity: 0.7;
-  max-width: 500px;
-}
-
 .playlist__list {
   padding: 15px;
 }
@@ -488,8 +440,39 @@ button {
   }
 }
 
-@media screen and (max-width: 500px) {
-  .player .details {
-    margin-bottom: 20px;
+@media screen and (max-width: 760px) {
+  .player {
+    height: auto;
+    align-items: end;
+    flex-wrap: nowrap;
+  }
+  .audio__cover .controls__range {
+    display: none;
+  }
+  #audio {
+    height: auto;
+  }
+  .volud {
+    display: none;
+  }
+  .volud__icons {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .volud__icons {
+    top: 5px;
+    transform: translate(0, 0);
+  }
+  .controls__pnp svg:nth-child(2) {
+    display: none;
+  }
+  .controls__pnp svg:nth-child(odd) {
+    display: none;
+  }
+  #audio {
+    align-items: flex-end;
   }
 }

@@ -1,11 +1,11 @@
-import Card from "./Card";
-import "../Styles/Cards.css";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { db } from "../firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { db } from "../firebase";
 import { TopAction } from "../Redux/Actions/LFTAction";
+import "../Styles/Cards.css";
+import Card from "./Card";
 
 function Popular() {
   const ts = useSelector((state) => state.top.topSongs);
@@ -34,7 +34,7 @@ function Popular() {
           ? ts.map((cd, id) => {
               return <Card key={id} data={cd} />;
             })
-          : Array(10)
+          : Array(9)
               .fill()
               .map((i, id) => {
                 return (

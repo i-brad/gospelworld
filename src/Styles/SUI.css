@@ -29,6 +29,7 @@
 
 .sui {
   position: relative;
+  top: 10px;
 }
 
 .close {
@@ -187,6 +188,15 @@
   height: 100%;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  background: none !important;
+  -webkit-box-shadow: 0 0 0px 1000px #2a3326 inset;
+  -webkit-text-fill-color: white;
+  border: 1px solid #2a3326;
+}
+
 .log .pss {
   cursor: pointer;
 }
@@ -202,14 +212,6 @@
   align-self: flex-start;
   color: white;
   margin: 10px auto;
-}
-
-.rme {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  color: rgba(255, 255, 255, 0.774);
 }
 
 .log {

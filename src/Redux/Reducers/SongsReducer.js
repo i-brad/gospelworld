@@ -1,18 +1,18 @@
 import { ActionTypes } from "../Constants";
 
 let initialstate = {
-	songs: {},
+  songs: [],
 };
 
 export function SongsReducer(state = initialstate, { type, payload }) {
-	switch (type) {
-		case ActionTypes.SONGS:
-			return {
-				...state,
-				songs: payload,
-			};
+  switch (type) {
+    case ActionTypes.SONGS:
+      return {
+        ...state,
+        songs: payload,
+      };
 
-		default:
-			return state;
-	}
+    default:
+      return state;
+  }
 }

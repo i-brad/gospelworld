@@ -1,18 +1,18 @@
 import { ActionTypes } from "../Constants";
 
 let initialState = {
-	song: {},
+  song: {},
 };
 
 export function PlayReducer(state = initialState, { type, payload }) {
-	switch (type) {
-		case ActionTypes.PLAY:
-			return {
-				...state,
-				song: payload,
-			};
+  switch (type) {
+    case ActionTypes.PLAY:
+      return {
+        ...state,
+        song: payload,
+      };
 
-		default:
-			return state;
-	}
+    default:
+      return state;
+  }
 }

@@ -17,38 +17,13 @@
   margin-top: 25px;
 }
 
-.settings__display span {
+.settings__display > span {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 5px;
 }
 
-.settings label {
-  display: block;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-.settings input {
-  cursor: pointer;
-  border: none;
-}
-
-.settings__mode span {
-  margin-right: 10px;
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background: #fff;
-  position: relative;
-}
-
-.settings__mode span > input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+.settings__display .css-1yjjitx-MuiSwitch-track {
+  background-color: #fff;
 }

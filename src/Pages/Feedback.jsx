@@ -19,6 +19,7 @@ function Feedback() {
               id="feedback"
               cols="30"
               rows="10"
+              style={{ resize: "none" }}
             ></textarea>
           </label>
           <div>

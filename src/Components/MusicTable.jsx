@@ -1,7 +1,7 @@
-import TableRow from "./TableRow";
 import "../Styles/Music.css";
+import TableRow from "./TableRow";
 
-function MusicTable({ songs = {} }) {
+function MusicTable({ songs = [] }) {
   return (
     <div className="music__table">
       <table>
@@ -14,7 +14,7 @@ function MusicTable({ songs = {} }) {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(songs).length > 0
+          {songs.length > 0
             ? songs.map((cd, id) => {
                 return <TableRow key={id} data={cd} />;
               })

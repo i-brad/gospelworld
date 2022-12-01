@@ -3,6 +3,18 @@
   padding: 30px;
 }
 
+@media screen and (max-width: 500px) {
+  .feedback {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .feedback {
+    padding: 10px;
+  }
+}
+
 .feedback h1 {
   font-weight: 500;
   font-size: 1rem;

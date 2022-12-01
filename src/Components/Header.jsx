@@ -1,16 +1,18 @@
-import "../Styles/Header.css";
-import SearchIcon from "@mui/icons-material/Search";
-import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import { useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
+import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { TermAction } from "../Redux/Actions/SearchAction";
+import "../Styles/Header.css";
 
 import MenuIcon from "@mui/icons-material/Menu";
 
 function Header() {
   let [term, setTerm] = useState("");
+  let [OpenNotify, setOpenNotify] = useState(false);
+  let [searchState, setSearchState] = useState(false);
   let push = useNavigate();
   const user = useSelector((state) => state.signReducer);
   let dispatch = useDispatch();
@@ -50,13 +52,25 @@ function Header() {
     }
   };
 
+  let notify = () => {
+    setOpenNotify(!OpenNotify);
+  };
+
+  let searchHandle = () => {
+    setSearchState(!searchState);
+  };
+
   return (
     <header>
       <nav className="header__nav">
         <button onClick={menu}>
           <MenuIcon className="nav__icon" />
         </button>
-        <form action="" className="header__search" onSubmit={(e) => pv(e)}>
+        <form
+          action=""
+          className={`header__search ${searchState ? "mobile__active" : ""}`}
+          onSubmit={(e) => pv(e)}
+        >
           <input
             type="search"
             name="search"
@@ -86,13 +100,18 @@ function Header() {
           />
           <SearchIcon onSubmit={search} />
         </form>
+        {OpenNotify && <div className="header__notifications"></div>}
         <div className="header__spC">
-          <span className="header__searchBtn">
+          <span
+            className="header__searchBtn"
+            style={{ cursor: "pointer" }}
+            onClick={searchHandle}
+          >
             <SearchIcon />
           </span>
-          <span className="header__notify">
+          <span className="header__notify" onClick={notify}>
             <NotificationsOutlinedIcon className="header__icon" />
-            <span></span>
+            {/* <span></span> */}
           </span>
           <span
             className="header__sp"
@@ -102,7 +121,7 @@ function Header() {
             <AccountCircleOutlinedIcon className="header__icon" />
             {user?.user?.username && (
               <p>
-                Welcome <strong>{user?.user?.username}</strong>
+                <strong>{user?.user?.username.split(" ")[0]}</strong>
               </p>
             )}
           </span>

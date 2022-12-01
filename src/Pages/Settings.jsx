@@ -1,11 +1,17 @@
-import Header from "../Components/Header";
-import { useState } from "react";
+import { Radio } from "@mui/material";
 import Switch from "@mui/material/Switch";
+import { useState } from "react";
+import Header from "../Components/Header";
 import "../Styles/Settings.css";
 
 function Settings() {
   let [checked, setChecked] = useState(false);
   let [checkedO, setCheckedO] = useState(false);
+  const [selectedValue, setSelectedValue] = useState("a");
+
+  const handleChangeRadio = (event) => {
+    setSelectedValue(event.target.value);
+  };
   let handleChange = (event) => {
     setChecked(event.target.checked);
   };
@@ -38,24 +44,45 @@ function Settings() {
         </div>
         <div className="settings__mode">
           <h3>Mode</h3>
-          <label htmlFor="light">
-            <span>
-              <input type="radio" name="mode" id="light" />
-            </span>
-            Light
-          </label>
-          <label htmlFor="dark">
-            <span>
-              <input type="radio" name="mode" id="dark" />
-            </span>
-            Dark
-          </label>
-          <label htmlFor="system">
-            <span>
-              <input type="radio" name="mode" id="system" />
-            </span>
+          <span>
+            <Radio
+              sx={{
+                color: "#fff",
+              }}
+              checked={selectedValue === "a"}
+              onChange={handleChangeRadio}
+              value="a"
+              name="radio-buttons"
+              inputProps={{ "aria-label": "A" }}
+            />
             Default
-          </label>
+          </span>
+          <span>
+            <Radio
+              sx={{
+                color: "#fff",
+              }}
+              checked={selectedValue === "b"}
+              onChange={handleChangeRadio}
+              value="b"
+              name="radio-buttons"
+              inputProps={{ "aria-label": "B" }}
+            />
+            Light
+          </span>
+          <span>
+            <Radio
+              sx={{
+                color: "#fff",
+              }}
+              checked={selectedValue === "c"}
+              onChange={handleChangeRadio}
+              value="c"
+              name="radio-buttons"
+              inputProps={{ "aria-label": "C" }}
+            />
+            Dark
+          </span>
         </div>
       </div>
     </div>
