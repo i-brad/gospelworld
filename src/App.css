@@ -475,4 +475,7 @@ button {
   #audio {
     align-items: flex-end;
   }
+.player img{
+width: 120px;
+}
 }
