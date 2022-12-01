@@ -153,7 +153,7 @@ button {
   color: white;
   flex: 1 1 250px;
   width: 100%;
-  min-width: fit-content;
+  /*min-width: fit-content;*/
   max-width: 140px;
 }
 
