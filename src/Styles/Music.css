@@ -98,6 +98,7 @@
 
 .music__table table {
   width: 100%;
+  white-space: nowrap;
 }
 
 .music__table::-webkit-scrollbar {
@@ -144,6 +145,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 5px;
 }
 
 .music__table .icons {
