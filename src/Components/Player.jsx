@@ -20,7 +20,7 @@ function Player() {
   const { id, audio: audioSrc, name, size, artist, img, duration } = playData;
 
   //play func
-  let play = useCallback(() => {
+  let playing = useCallback(() => {
     let loader = document.getElementById("player__loader");
     let playBtn = document.getElementById("play");
     let pauseBtn = document.getElementById("pause");
@@ -30,12 +30,13 @@ function Player() {
     loader.style.display = "flex";
 
     let audio = document.querySelector("#adsrc");
-    if (!audio.duration) {
-      audio.src = audioSrc;
-      audio.autoplay = true;
-    } else {
-      audio.play();
-    }
+
+    audio.src = audioSrc;
+    audio.autoplay = true;
+
+    audio.addEventListener("playing", () => {
+      loader.style.display = "none";
+    });
 
     const duration = document.getElementById("duration");
     const current__time = document.getElementById("current__time");
@@ -53,10 +54,6 @@ function Player() {
       current__time.textContent = calculatedTime(audio.currentTime);
       interval = setInterval(showRangeProgress, 1000);
     };
-
-    audio.addEventListener("playing", () => {
-      loader.style.display = "none";
-    });
 
     audio.addEventListener("ended", () => {
       if (audio.currentTime === audio.duration) {
@@ -112,8 +109,8 @@ function Player() {
   }, [audioSrc]);
 
   useEffect(() => {
-    play();
-  }, [play]);
+    playing();
+  }, [playing]);
 
   let pause = () => {
     let playBtn = document.getElementById("play");
@@ -125,6 +122,19 @@ function Player() {
     let audioP = document.querySelector("#adsrc");
 
     audioP.pause();
+    audioP.autoplay = false;
+  };
+
+  let play = () => {
+    let playBtn = document.getElementById("play");
+    let pauseBtn = document.getElementById("pause");
+
+    playBtn.classList.remove("pp");
+    pauseBtn.classList.add("pp");
+
+    let audioP = document.querySelector("#adsrc");
+
+    audioP.play();
     audioP.autoplay = false;
   };
 

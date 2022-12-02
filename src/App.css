@@ -6,10 +6,6 @@ a {
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-}
-
 button {
   cursor: pointer;
   outline: none;
@@ -153,7 +149,7 @@ button {
   color: white;
   flex: 1 1 250px;
   width: 100%;
-  /*min-width: fit-content;*/
+  min-width: fit-content;
   max-width: 140px;
 }
 
@@ -475,7 +471,21 @@ button {
   #audio {
     align-items: flex-end;
   }
-.player img{
-width: 120px;
+  .player img {
+    width: 100px;
+  }
+  .player .details {
+    flex: 1 1 50%;
+  }
+  .audio__cover {
+    flex: 1 1 50%;
+    padding: 0 5px;
+  }
 }
+
+@media screen and (max-width: 300px) {
+  .player img {
+    width: 0px;
+    height: 0px;
+  }
 }

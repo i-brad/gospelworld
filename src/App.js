@@ -1,12 +1,16 @@
-import { lazy, Suspense } from "react";
-import { useSelector } from "react-redux";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { lazy, Suspense, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Loader from "./Components/Loader";
 import Navbar from "./Components/Navbar";
 import Player from "./Components/Player";
 import SUI from "./Components/SUI";
+import { db } from "./firebase";
 import Video from "./Pages/Video";
+import { FeaturedAction } from "./Redux/Actions/LFTAction";
+import { SongsAction } from "./Redux/Actions/SongsAction";
 
 const Home = lazy(() => import("./Pages/Home"));
 const Musics = lazy(() => import("./Pages/Musics"));
@@ -23,6 +27,38 @@ const Search = lazy(() => import("./Pages/Search"));
 
 function App() {
   const playData = useSelector((state) => state.play.song);
+  let song = useSelector((state) => state.featured.featured);
+  let songs = useSelector((state) => state.songs.songs);
+  let dispatch = useDispatch();
+  useEffect(() => {
+    if (Object.keys(song).length === 0) {
+      const fetchData = async () => {
+        let q = query(collection(db, "songs"), where("featured", "==", true));
+
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          dispatch(FeaturedAction({ id: doc.id, ...doc.data() }));
+        });
+      };
+
+      fetchData();
+    }
+
+    async function fetchSongs() {
+      if (songs.length === 0) {
+        const q = query(collection(db, "songs"), orderBy("name"));
+        const querySnapshot = await getDocs(q);
+        let data = [];
+        querySnapshot.forEach((doc) => {
+          data.push({ id: doc.id, ...doc.data() });
+        });
+
+        dispatch(SongsAction(data));
+      }
+    }
+
+    fetchSongs();
+  }, [dispatch, song, songs]);
   return (
     <div className="app">
       <Navbar />
